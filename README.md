@@ -1,235 +1,468 @@
-# 📚 Sistema de Gerenciamento de Editoras, Livros e Autores# 📚 Sistema de Gestão - Editoras, Livros e Autores
+# 📚 Sistema de Gerenciamento - Editoras, Livros e Autores# 📚 Sistema de Gerenciamento de Editoras, Livros e Autores# 📚 Sistema de Gestão - Editoras, Livros e Autores
 
 
 
-[![Java](https://img.shields.io/badge/Java-17+-orange.svg)](https://www.oracle.com/java/)> Trabalho Acadêmico de Programação Orientada a Objetos (POO)
-
-[![POO](https://img.shields.io/badge/Paradigma-POO-blue.svg)](https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_orientada_a_objetos)
-
-[![Status](https://img.shields.io/badge/Status-Concluído-green.svg)]()Sistema completo desenvolvido em Java para gerenciamento de **Editoras**, **Livros** e **Autores**, implementando CRUD completo com relacionamentos entre entidades, validações de dados e arquitetura orientada a objetos com herança e genéricos.
-
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+<div align="center">
 
 
 
-> Sistema acadêmico completo de gerenciamento de editoras, livros e autores com relacionamentos 1:N e N:N, implementado em Java puro com princípios de Programação Orientada a Objetos.## 📋 Índice
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)[![Java](https://img.shields.io/badge/Java-17+-orange.svg)](https://www.oracle.com/java/)> Trabalho Acadêmico de Programação Orientada a Objetos (POO)
+
+![POO](https://img.shields.io/badge/Paradigma-POO-blue?style=for-the-badge)
+
+![Status](https://img.shields.io/badge/Status-Completo-success?style=for-the-badge)[![POO](https://img.shields.io/badge/Paradigma-POO-blue.svg)](https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_orientada_a_objetos)
 
 
 
----- [Sobre o Projeto](#sobre-o-projeto)
+**Sistema CRUD completo com relacionamentos 1:N e N:N desenvolvido em Java puro**[![Status](https://img.shields.io/badge/Status-Concluído-green.svg)]()Sistema completo desenvolvido em Java para gerenciamento de **Editoras**, **Livros** e **Autores**, implementando CRUD completo com relacionamentos entre entidades, validações de dados e arquitetura orientada a objetos com herança e genéricos.
 
-- [Modelo de Dados](#modelo-de-dados)
 
-## 📋 Índice- [Estrutura do Projeto](#estrutura-do-projeto)
 
-- [Conceitos de POO Aplicados](#conceitos-de-poo-aplicados)
+[Características](#-características) • [Como Usar](#-como-usar) • [Estrutura](#-estrutura) • [Conceitos POO](#-conceitos-poo-aplicados)[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+
+
+</div>
+
+
+
+---> Sistema acadêmico completo de gerenciamento de editoras, livros e autores com relacionamentos 1:N e N:N, implementado em Java puro com princípios de Programação Orientada a Objetos.## 📋 Índice
+
+
+
+## 🎯 Sobre
+
+
+
+Projeto acadêmico demonstrando **Programação Orientada a Objetos** com:---- [Sobre o Projeto](#sobre-o-projeto)
+
+
+
+- ✅ 4 entidades relacionadas (Editora, Livro, Autor, AutorLivro)- [Modelo de Dados](#modelo-de-dados)
+
+- ✅ CRUD completo para cada entidade
+
+- ✅ Relacionamento 1:N (Editora → Livros)## 📋 Índice- [Estrutura do Projeto](#estrutura-do-projeto)
+
+- ✅ Relacionamento N:N (Livros ↔ Autores)
+
+- ✅ Validações robustas- [Conceitos de POO Aplicados](#conceitos-de-poo-aplicados)
+
+- ✅ Menus interativos via terminal
 
 - [Sobre o Projeto](#-sobre-o-projeto)- [Funcionalidades](#funcionalidades)
 
+## 🗂️ Modelo de Dados
+
 - [Modelo de Dados](#-modelo-de-dados)- [Validações Implementadas](#validações-implementadas)
 
-- [Estrutura do Projeto](#-estrutura-do-projeto)- [Como Executar](#como-executar)
+```
 
-- [Conceitos de POO Aplicados](#-conceitos-de-poo-aplicados)- [Exemplos de Uso](#exemplos-de-uso)
+Editora (1) ─────→ (N) Livro (N) ←────→ (N) Autor- [Estrutura do Projeto](#-estrutura-do-projeto)- [Como Executar](#como-executar)
+
+                           │
+
+                           └──→ AutorLivro (Tabela N:N)- [Conceitos de POO Aplicados](#-conceitos-de-poo-aplicados)- [Exemplos de Uso](#exemplos-de-uso)
+
+```
 
 - [Funcionalidades](#-funcionalidades)- [Tecnologias Utilizadas](#tecnologias-utilizadas)
 
-- [Validações Implementadas](#-validações-implementadas)- [Autor](#autor)
+**Entidades:**
 
-- [Como Executar](#-como-executar)
+- `tbleditoras` - Editoras de livros- [Validações Implementadas](#-validações-implementadas)- [Autor](#autor)
+
+- `tblivros` - Livros (FK → Editora)
+
+- `tblautores` - Autores- [Como Executar](#-como-executar)
+
+- `tblautoreslivros` - Relacionamento N:N entre Livros e Autores
 
 - [Exemplos de Uso](#-exemplos-de-uso)---
 
+## 🚀 Como Usar
+
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+
+### Compilar e Executar
 
 - [Métricas do Projeto](#-métricas-do-projeto)## 🎯 Sobre o Projeto
 
-- [Conceitos Acadêmicos](#-conceitos-acadêmicos)
+```bash
+
+# Compilar- [Conceitos Acadêmicos](#-conceitos-acadêmicos)
+
+javac -encoding UTF-8 *.java
 
 - [Melhorias Futuras](#-melhorias-futuras)Este projeto foi desenvolvido como trabalho acadêmico da disciplina de **Programação Orientada a Objetos**, com o objetivo de aplicar na prática os principais conceitos de POO:
 
-- [Autor](#-autor)
+# Executar
 
-- [Licença](#-licença)- ✅ **Encapsulamento** - Atributos privados com getters/setters validados
+java Main- [Autor](#-autor)
 
-- ✅ **Herança** - Classe base genérica `BancoBase<T>` para reutilização de código
+
+
+# Limpar- [Licença](#-licença)- ✅ **Encapsulamento** - Atributos privados com getters/setters validados
+
+Remove-Item *.class -Force  # Windows PowerShell
+
+rm *.class                   # Linux/Mac- ✅ **Herança** - Classe base genérica `BancoBase<T>` para reutilização de código
+
+```
 
 ---- ✅ **Polimorfismo** - Uso de generics e métodos abstratos
 
+### Menu Principal
+
 - ✅ **Abstração** - Separação clara entre Model, Data e View
 
-## 🎯 Sobre o Projeto- ✅ **Validação de Dados** - Regras de negócio implementadas nas entidades
+```
 
-- ✅ **Relacionamentos** - Implementação de FK (1:N) e tabela associativa (N:N)
+1. Gerenciar Editoras## 🎯 Sobre o Projeto- ✅ **Validação de Dados** - Regras de negócio implementadas nas entidades
 
-Este projeto é um **trabalho acadêmico** desenvolvido para demonstrar a aplicação prática de conceitos de **Programação Orientada a Objetos (POO)** em Java. O sistema implementa um CRUD completo para gerenciamento de:
+2. Gerenciar Livros
 
-### 📊 Modelo de Dados
+3. Gerenciar Autores- ✅ **Relacionamentos** - Implementação de FK (1:N) e tabela associativa (N:N)
 
-- **Editoras** (tbleditoras)
+0. Sair
 
-- **Livros** (tblivros) O sistema implementa o seguinte modelo relacional:
+```Este projeto é um **trabalho acadêmico** desenvolvido para demonstrar a aplicação prática de conceitos de **Programação Orientada a Objetos (POO)** em Java. O sistema implementa um CRUD completo para gerenciamento de:
 
-- **Autores** (tblautores)
+
+
+**Cada menu oferece:**### 📊 Modelo de Dados
+
+1. Inserir
+
+2. Alterar- **Editoras** (tbleditoras)
+
+3. Excluir
+
+4. Pesquisar por ID- **Livros** (tblivros) O sistema implementa o seguinte modelo relacional:
+
+5. Listar Todos
+
+6. Contar Registros- **Autores** (tblautores)
+
+0. Voltar
 
 - **Relacionamento Autor-Livro** (tblautoreslivros)```
 
+## 📁 Estrutura
+
 ┌─────────────────────┐       ┌──────────────────────┐       ┌──────────────────────┐       ┌─────────────────────┐
 
-### ✨ Diferenciais Técnicos│   tbleditoras       │       │     tblivros         │       │  tblautoreslivros    │       │    tblautores       │
+```
 
-├─────────────────────┤       ├──────────────────────┤       ├──────────────────────┤       ├─────────────────────┤
+projeto-poo-java/### ✨ Diferenciais Técnicos│   tbleditoras       │       │     tblivros         │       │  tblautoreslivros    │       │    tblautores       │
 
-- ✅ **Arquitetura em 3 camadas** (Modelo, Dados, Visão)│ *PK edid: int       │◄──────│ *PK livid: int       │◄──────│ *PK livid: int       │──────►│ *PK autid: int      │
+├── 📦 Modelo (Entidades)
 
-- ✅ **Relacionamentos complexos**: 1:N (Editora→Livro) e N:N (Livro↔Autor)│     ednome: varchar │       │     livnome: varchar │       │ *PK autid: int       │       │     autnome: varchar│
+│   ├── Editora.java├─────────────────────┤       ├──────────────────────┤       ├──────────────────────┤       ├─────────────────────┤
 
-- ✅ **Classe genérica base** (`BancoBase<T>`) aplicando **DRY** e **reuso de código**│     edsigla: varchar│       │  livanopubli: int    │       └──────────────────────┘       │  autpseudomo: var.. │
+│   ├── Livro.java
 
-- ✅ **Uso de Generics, Lambdas e Predicates** (Java 8+)│  edcbservacoes: var.│       │     livisbn: int     │                                      │  autobservacoes: ..│
+│   ├── Autor.java- ✅ **Arquitetura em 3 camadas** (Modelo, Dados, Visão)│ *PK edid: int       │◄──────│ *PK livid: int       │◄──────│ *PK livid: int       │──────►│ *PK autid: int      │
 
-- ✅ **Validações robustas** em todas as camadas└─────────────────────┘       │ livobservacoes: var. │                                      └─────────────────────┘
+│   └── AutorLivro.java
 
-- ✅ **Menus interativos** via terminal                              │ *FK edid: int        │
+│- ✅ **Relacionamentos complexos**: 1:N (Editora→Livro) e N:N (Livro↔Autor)│     ednome: varchar │       │     livnome: varchar │       │ *PK autid: int       │       │     autnome: varchar│
 
-- ✅ **Armazenamento em memória** (ArrayList) para fins acadêmicos                              └──────────────────────┘
+├── 💾 Dados (Gerenciadores)
 
+│   ├── BancoBase.java         ⭐ Classe genérica base- ✅ **Classe genérica base** (`BancoBase<T>`) aplicando **DRY** e **reuso de código**│     edsigla: varchar│       │  livanopubli: int    │       └──────────────────────┘       │  autpseudomo: var.. │
 
+│   ├── EditoraBanco.java
+
+│   ├── LivroBanco.java- ✅ **Uso de Generics, Lambdas e Predicates** (Java 8+)│  edcbservacoes: var.│       │     livisbn: int     │                                      │  autobservacoes: ..│
+
+│   ├── AutorBanco.java
+
+│   └── AutorLivroBanco.java- ✅ **Validações robustas** em todas as camadas└─────────────────────┘       │ livobservacoes: var. │                                      └─────────────────────┘
+
+│
+
+└── 🖥️ Visão (Menus)- ✅ **Menus interativos** via terminal                              │ *FK edid: int        │
+
+    ├── Main.java              ⭐ Ponto de entrada
+
+    ├── MenuEditoras.java- ✅ **Armazenamento em memória** (ArrayList) para fins acadêmicos                              └──────────────────────┘
+
+    ├── MenuLivros.java
+
+    └── MenuAutores.java
+
+```
 
 ---Relacionamentos:
 
+**Total:** 13 classes | ~1.200 linhas
+
 • Editora → Livro (1:N) - Uma editora publica vários livros
+
+## 🎓 Conceitos POO Aplicados
 
 ## 🗂️ Modelo de Dados• Livro ↔ Autor (N:N) - Um livro pode ter vários autores e um autor pode escrever vários livros
 
-```
+### 1. Encapsulamento
 
-O sistema implementa o seguinte modelo relacional:
+```java```
 
-## 📂 Estrutura do Projeto
+public class Editora {
 
-```
+    private int edid;O sistema implementa o seguinte modelo relacional:
 
-┌──────────────────┐           ┌──────────────────┐```
+    private String ednome;
 
-│   tbleditoras    │           │    tblivros      │projeto-poo-java/
+    ## 📂 Estrutura do Projeto
 
-├──────────────────┤           ├──────────────────┤│
+    public void setEdid(int edid) {
 
-│ edid (PK)        │───┐       │ livid (PK)       │├── 📄 Entidades (Model)
+        if (edid <= 0) throw new IllegalArgumentException("ID inválido");```
 
-│ ednome           │   │       │ livnome          ││   ├── Editora.java          # Entidade Editora
+        this.edid = edid;
 
-│ edsigla          │   │       │ livanopubli      ││   ├── Livro.java             # Entidade Livro (com FK edid)
+    }┌──────────────────┐           ┌──────────────────┐```
 
-│ edcbservacoes    │   │       │ livisbn          ││   ├── Autor.java             # Entidade Autor
+}
+
+```│   tbleditoras    │           │    tblivros      │projeto-poo-java/
+
+
+
+### 2. Herança + Generics├──────────────────┤           ├──────────────────┤│
+
+```java
+
+// Classe base genérica elimina ~105 linhas de código duplicado│ edid (PK)        │───┐       │ livid (PK)       │├── 📄 Entidades (Model)
+
+public abstract class BancoBase<T> {
+
+    protected ArrayList<T> itens = new ArrayList<>();│ ednome           │   │       │ livnome          ││   ├── Editora.java          # Entidade Editora
+
+    
+
+    public boolean adicionar(T item) { ... }│ edsigla          │   │       │ livanopubli      ││   ├── Livro.java             # Entidade Livro (com FK edid)
+
+    public List<T> pesquisar(Predicate<T> criterio) { ... }
+
+    protected abstract boolean existe(T item);│ edcbservacoes    │   │       │ livisbn          ││   ├── Autor.java             # Entidade Autor
+
+}
 
 └──────────────────┘   │       │ livobservacoes   ││   └── AutorLivro.java        # Tabela associativa (N:N)
 
-                       │       │ edid (FK)        │───────┐│
+// Classes concretas
 
-                       └───────│                  │       │├── 🗄️ Camada de Dados (Data/DAO)
+public class EditoraBanco extends BancoBase<Editora> { ... }                       │       │ edid (FK)        │───────┐│
 
-                               └──────────────────┘       ││   ├── BancoBase.java         # ⭐ Classe base genérica (herança)
+public class LivroBanco extends BancoBase<Livro> { ... }
 
-                                       │                  ││   ├── EditoraBanco.java      # CRUD de Editoras
+```                       └───────│                  │       │├── 🗄️ Camada de Dados (Data/DAO)
 
-                                       │ N:N              │ 1:N│   ├── LivroBanco.java        # CRUD de Livros
+
+
+### 3. Polimorfismo com Lambdas                               └──────────────────┘       ││   ├── BancoBase.java         # ⭐ Classe base genérica (herança)
+
+```java
+
+// Busca flexível usando Predicates                                       │                  ││   ├── EditoraBanco.java      # CRUD de Editoras
+
+Editora ed = editoraBanco.pesquisar(e -> e.getEdid() == 10).get(0);
+
+List<Livro> livros = livroBanco.pesquisar(l -> l.getLivnome().contains("Java"));                                       │ N:N              │ 1:N│   ├── LivroBanco.java        # CRUD de Livros
+
+```
 
                                        │                  ││   ├── AutorBanco.java        # CRUD de Autores
 
+## ✅ Validações
+
                                ┌───────┴───────┐          ││   └── AutorLivroBanco.java   # Gerenciamento de relacionamentos
 
-                               │               │          ││
+| Entidade | Campo | Regra |
 
-                         ┌─────▼─────────────┐ │          │├── 🖥️ Interface (View)
+|----------|-------|-------|                               │               │          ││
 
-                         │ tblautoreslivros  │ │          ││   ├── Main.java              # Menu principal
+| **Editora** | `edid` | > 0 |
 
-                         ├───────────────────┤ │          ││   ├── MenuEditoras.java      # Menu de Editoras
+| | `ednome` | Mínimo 3 caracteres |                         ┌─────▼─────────────┐ │          │├── 🖥️ Interface (View)
 
-                         │ livid (FK, PK)    │─┘          ││   ├── MenuLivros.java        # Menu de Livros
+| | `edsigla` | Mínimo 2 caracteres |
+
+| **Livro** | `livid` | > 0 |                         │ tblautoreslivros  │ │          ││   ├── Main.java              # Menu principal
+
+| | `livnome` | Mínimo 3 caracteres |
+
+| | `livisbn` | Mínimo 3 caracteres |                         ├───────────────────┤ │          ││   ├── MenuEditoras.java      # Menu de Editoras
+
+| | `edid` (FK) | > 0 (Editora válida) |
+
+| **Autor** | `autid` | > 0 |                         │ livid (FK, PK)    │─┘          ││   ├── MenuLivros.java        # Menu de Livros
+
+| | `autnome` | Mínimo 3 caracteres |
 
                          │ autid (FK, PK)    │───┐        ││   └── MenuAutores.java       # Menu de Autores
 
+## 📊 Métricas
+
                          └───────────────────┘   │        ││
 
-                                                 │        │└── 📖 README.md               # Documentação
+| Métrica | Valor |
 
-                               ┌─────────────────▼────────┘```
+|---------|-------|                                                 │        │└── 📖 README.md               # Documentação
 
-                               │
+| Classes | 13 |
 
-                         ┌─────▼────────────┐### 🏗️ Arquitetura em Camadas
+| Linhas de Código | ~1.200 |                               ┌─────────────────▼────────┘```
 
-                         │   tblautores     │
+| **Código Eliminado** (DRY) | **~105 linhas** ✨ |
+
+| Relacionamentos | 2 (1:N + N:N) |                               │
+
+
+
+### 🎯 Impacto da Refatoração                         ┌─────▼────────────┐### 🏗️ Arquitetura em Camadas
+
+**Antes** de `BancoBase<T>`: 170 linhas (3 classes Banco)  
+
+**Depois** de `BancoBase<T>`: 119 linhas                           │   tblautores     │
+
+**Redução: ~30% de código duplicado!** 🚀
 
                          ├──────────────────┤O projeto segue uma **arquitetura em 3 camadas**:
 
+## 💡 Exemplo de Uso
+
                          │ autid (PK)       │
 
-                         │ autnome          │1. **Camada de Modelo (Model)** - Entidades com validações
+```
+
+Menu Principal                         │ autnome          │1. **Camada de Modelo (Model)** - Entidades com validações
+
+Escolha: 1
 
                          │ autpseudomo      │2. **Camada de Dados (Data/DAO)** - Gerenciamento de dados em memória
 
-                         │ autobservacoes   │3. **Camada de Apresentação (View)** - Menus interativos CLI
+--- Menu Editoras ---
+
+1. Inserir Editora                         │ autobservacoes   │3. **Camada de Apresentação (View)** - Menus interativos CLI
+
+Escolha: 1
 
                          └──────────────────┘
 
-```---
+Digite o ID: 1
+
+Digite o nome: Editora Atlas```---
+
+Digite a sigla: EA
+
+Digite observações: Especializada em tecnologia
 
 
 
-### Relacionamentos:## 🔧 Conceitos de POO Aplicados
+✓ Editora inserida com sucesso!### Relacionamentos:## 🔧 Conceitos de POO Aplicados
+
+```
 
 - **1:N** - Uma Editora possui vários Livros (edid)
 
+## 🛠️ Tecnologias
+
 - **N:N** - Livros podem ter múltiplos Autores e vice-versa (via tblautoreslivros)### 1️⃣ Herança e Generics
 
+- **Java SE 8+** - Linguagem base
 
+- **ArrayList** - Armazenamento em memória
 
----```java
+- **Streams & Lambdas** - Programação funcional
+
+- **Generics** - Reuso de código---```java
+
+- **Predicates** - Buscas flexíveis
 
 // Classe base genérica que elimina código duplicado
 
+## 📚 Conceitos Demonstrados
+
 ## 📁 Estrutura do Projetopublic abstract class BancoBase<T> {
 
-    protected final List<T> lista;
+- [x] Classes e Objetos
 
-```    
+- [x] Encapsulamento    protected final List<T> lista;
 
-projeto-poo-java/    public boolean adicionar(T entidade) { ... }
+- [x] Herança (BancoBase → Bancos concretos)
 
-├── Editora.java              # Classe modelo Editora    public boolean remover(Predicate<T> criterio) { ... }
+- [x] Polimorfismo (Lambdas, Predicates)```    
 
-├── Livro.java                # Classe modelo Livro    public T pesquisar(Predicate<T> criterio) { ... }
+- [x] Abstração (classe abstrata)
+
+- [x] Generics (`BancoBase<T>`)projeto-poo-java/    public boolean adicionar(T entidade) { ... }
+
+- [x] Relacionamentos 1:N e N:N
+
+- [x] Validação de dados├── Editora.java              # Classe modelo Editora    public boolean remover(Predicate<T> criterio) { ... }
+
+- [x] Collections Framework
+
+- [x] Design Pattern DAO├── Livro.java                # Classe modelo Livro    public T pesquisar(Predicate<T> criterio) { ... }
+
+- [x] Princípio DRY
 
 ├── Autor.java                # Classe modelo Autor    // ... outros métodos comuns
 
+## 🔮 Melhorias Futuras
+
 ├── AutorLivro.java           # Classe de relacionamento N:N    
 
-├── BancoBase.java            # ⭐ Classe genérica abstrata (elimina duplicação)    protected abstract boolean existe(T entidade);
+- [ ] Persistência em banco de dados (MySQL)
 
-├── EditoraBanco.java         # Gerenciador CRUD de Editoras}
+- [ ] Interface gráfica (JavaFX)├── BancoBase.java            # ⭐ Classe genérica abstrata (elimina duplicação)    protected abstract boolean existe(T entidade);
+
+- [ ] API REST (Spring Boot)
+
+- [ ] Testes unitários (JUnit)├── EditoraBanco.java         # Gerenciador CRUD de Editoras}
+
+- [ ] Exportação de dados (CSV/JSON)
 
 ├── LivroBanco.java           # Gerenciador CRUD de Livros
 
+## 👨‍💻 Autor
+
 ├── AutorBanco.java           # Gerenciador CRUD de Autores// Implementação específica
 
-├── AutorLivroBanco.java      # Gerenciador de relacionamentos N:Npublic class EditoraBanco extends BancoBase<Editora> {
+**João Lucas**  
 
-├── MenuEditoras.java         # Menu interativo para Editoras    @Override
+📧 [Seu Email](mailto:seu-email@exemplo.com)  ├── AutorLivroBanco.java      # Gerenciador de relacionamentos N:Npublic class EditoraBanco extends BancoBase<Editora> {
 
-├── MenuLivros.java           # Menu interativo para Livros    protected boolean existe(Editora e) {
+💼 [LinkedIn](https://linkedin.com/in/seu-perfil)  
 
-├── MenuAutores.java          # Menu interativo para Autores        return pesquisar(e.getEdid()) != null;
+🐙 [GitHub](https://github.com/joaolucas1302)├── MenuEditoras.java         # Menu interativo para Editoras    @Override
 
-├── Main.java                 # ⭐ Ponto de entrada da aplicação    }
 
-└── README.md                 # Este arquivo}
 
-``````
+---├── MenuLivros.java           # Menu interativo para Livros    protected boolean existe(Editora e) {
 
+
+
+<div align="center">├── MenuAutores.java          # Menu interativo para Autores        return pesquisar(e.getEdid()) != null;
+
+
+
+**⭐ Se este projeto foi útil, considere dar uma estrela!**├── Main.java                 # ⭐ Ponto de entrada da aplicação    }
+
+
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)└── README.md                 # Este arquivo}
+
+
+
+Desenvolvido com ❤️ para fins acadêmicos``````
+
+
+
+</div>
 
 
 **Total**: 13 classes | ~1.200 linhas de código**Vantagens:**
