@@ -1,7 +1,9 @@
-/**
- * Classe "banco" que armazena e gerencia as editoras
- */
+
 public class EditoraBanco extends BancoBase<Editora> {
+
+    public EditoraBanco() {
+        super("editoras.dat");
+    }
 
     @Override
     protected boolean existe(Editora e) {
@@ -15,6 +17,7 @@ public class EditoraBanco extends BancoBase<Editora> {
             e.setEdnome(novoNome);
             e.setEdsigla(novaSigla);
             e.setEdcbservacoes(novasObservacoes);
+            notificarAlteracao();
             return true;
         } catch (IllegalArgumentException ex) {
             return false;

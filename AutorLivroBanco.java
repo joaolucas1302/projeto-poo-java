@@ -11,7 +11,7 @@ public class AutorLivroBanco {
 
     public boolean adicionar(AutorLivro autorLivro) {
         if (autorLivro == null) return false;
-        // Verifica se o relacionamento já existe
+        
         if (relacionamentoExiste(autorLivro.getLivid(), autorLivro.getAutid())) {
             return false;
         }

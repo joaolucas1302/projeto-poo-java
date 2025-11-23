@@ -53,8 +53,7 @@ public class MenuAutores {
     private void inserir() {
         try {
             System.out.println("\n--- INSERIR AUTOR ---");
-            System.out.print("ID (>0): ");
-            int autid = lerInt();
+            System.out.println("[INFO] O codigo sera gerado automaticamente.");
             System.out.print("Nome (min 3 chars): ");
             String nome = scanner.nextLine();
             System.out.print("Pseudonimo (opcional): ");
@@ -62,11 +61,13 @@ public class MenuAutores {
             System.out.print("Observacoes (opcional): ");
             String obs = scanner.nextLine();
 
-            Autor autor = new Autor(autid, nome, pseudonimo, obs);
-            if (banco.adicionar(autor)) {
+            Autor autor = new Autor(nome, pseudonimo);
+            autor.setAutobservacoes(obs);
+            
+            if (banco.adicionarComCodigoAutomatico(autor)) {
                 System.out.println("[OK] Autor inserido: " + autor);
             } else {
-                System.out.println("[ERRO] ID ja existe!");
+                System.out.println("[ERRO] Nao foi possivel inserir!");
             }
         } catch (IllegalArgumentException ex) {
             System.out.println("[ERRO] " + ex.getMessage());
@@ -139,6 +140,11 @@ public class MenuAutores {
     }
 
     private void obterNumeroItens() {
-        System.out.println("\n[INFO] Total de autores cadastrados: " + banco.contar());
+        int totalAtual = banco.contar();
+        int totalAdicionados = banco.contadorRegistrosAdicionados();
+        System.out.println("\n========== CONTADOR DE REGISTROS ==========");
+        System.out.println("[INFO] Total de autores cadastrados: " + totalAtual);
+        System.out.println("[INFO] Total de registros adicionados: " + totalAdicionados);
+        System.out.println("==========================================");
     }
 }

@@ -1,25 +1,37 @@
-public class Editora {
-    private int edid;
+
+public class Editora extends Entidade {
     private String ednome;
     private String edsigla;
     private String edcbservacoes;
 
+    
     public Editora(int edid, String ednome, String edsigla, String edcbservacoes) {
-        setEdid(edid);
+        super(edid);
         setEdnome(ednome);
         setEdsigla(edsigla);
         setEdcbservacoes(edcbservacoes);
     }
 
+   
+    public Editora(int edid, String ednome, String edsigla) {
+        this(edid, ednome, edsigla, "");
+    }
+
+    public Editora(String ednome, String edsigla) {
+        this(0, ednome, edsigla, "");
+    }
+
+    
+    public Editora(String ednome, String edsigla, String edcbservacoes) {
+        this(0, ednome, edsigla, edcbservacoes);
+    }
+
     public int getEdid() {
-        return edid;
+        return getCodigo();
     }
 
     public void setEdid(int edid) {
-        if (edid <= 0) {
-            throw new IllegalArgumentException("ID deve ser maior que zero.");
-        }
-        this.edid = edid;
+        setCodigo(edid);
     }
 
     public String getEdnome() {
@@ -55,9 +67,10 @@ public class Editora {
         this.edcbservacoes = edcbservacoes.trim();
     }
 
+
     @Override
     public String toString() {
-        return "[" + edid + "] " + ednome + " (" + edsigla + ")" + 
+        return "[" + getCodigo() + "] " + ednome + " (" + edsigla + ")" + 
                (edcbservacoes.isEmpty() ? "" : " - " + edcbservacoes);
     }
 }

@@ -68,8 +68,7 @@ public class MenuLivros {
     private void inserir() {
         try {
             System.out.println("\n--- INSERIR LIVRO ---");
-            System.out.print("ID (>0): ");
-            int livid = lerInt();
+            System.out.println("[INFO] O codigo sera gerado automaticamente.");
             System.out.print("Nome (min 3 chars): ");
             String nome = scanner.nextLine();
             System.out.print("Ano de Publicacao (>0): ");
@@ -81,11 +80,13 @@ public class MenuLivros {
             System.out.print("Observacoes (opcional): ");
             String obs = scanner.nextLine();
 
-            Livro livro = new Livro(livid, nome, ano, isbn, obs, edid);
-            if (livroBanco.adicionar(livro)) {
+            Livro livro = new Livro(nome, ano, isbn, edid);
+            livro.setLivobservacoes(obs);
+            
+            if (livroBanco.adicionarComCodigoAutomatico(livro)) {
                 System.out.println("[OK] Livro inserido: " + livro);
             } else {
-                System.out.println("[ERRO] ID ja existe!");
+                System.out.println("[ERRO] Nao foi possivel inserir!");
             }
         } catch (IllegalArgumentException ex) {
             System.out.println("[ERRO] " + ex.getMessage());
@@ -162,6 +163,11 @@ public class MenuLivros {
     }
 
     private void obterNumeroItens() {
-        System.out.println("\n[INFO] Total de livros cadastrados: " + livroBanco.contar());
+        int totalAtual = livroBanco.contar();
+        int totalAdicionados = livroBanco.contadorRegistrosAdicionados();
+        System.out.println("\n========== CONTADOR DE REGISTROS ==========");
+        System.out.println("[INFO] Total de livros cadastrados: " + totalAtual);
+        System.out.println("[INFO] Total de registros adicionados: " + totalAdicionados);
+        System.out.println("==========================================");
     }
 }

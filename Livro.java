@@ -1,13 +1,14 @@
-public class Livro {
-    private int livid;
+
+public class Livro extends Entidade {
     private String livnome;
     private int livanopubli;
     private int livisbn;
     private String livobservacoes;
-    private int edid; // Foreign Key para Editora
+    private int edid;
+
 
     public Livro(int livid, String livnome, int livanopubli, int livisbn, String livobservacoes, int edid) {
-        setLivid(livid);
+        super(livid);
         setLivnome(livnome);
         setLivanopubli(livanopubli);
         setLivisbn(livisbn);
@@ -15,15 +16,22 @@ public class Livro {
         setEdid(edid);
     }
 
+
+    public Livro(String livnome, int livanopubli, int livisbn, int edid) {
+        this(0, livnome, livanopubli, livisbn, "", edid);
+    }
+
+
+    public Livro(String livnome, int livanopubli, int edid) {
+        this(0, livnome, livanopubli, 0, "", edid);
+    }
+
     public int getLivid() {
-        return livid;
+        return getCodigo();
     }
 
     public void setLivid(int livid) {
-        if (livid <= 0) {
-            throw new IllegalArgumentException("ID deve ser maior que zero.");
-        }
-        this.livid = livid;
+        setCodigo(livid);
     }
 
     public String getLivnome() {
@@ -81,9 +89,10 @@ public class Livro {
         this.edid = edid;
     }
 
+
     @Override
     public String toString() {
-        return "[ID:" + livid + "] " + livnome + " (Ano: " + livanopubli + ", ISBN: " + livisbn + 
+        return "[ID:" + getCodigo() + "] " + livnome + " (Ano: " + livanopubli + ", ISBN: " + livisbn + 
                ", Ed:" + edid + (livobservacoes.isEmpty() ? "" : ", Obs: " + livobservacoes) + ")";
     }
 }

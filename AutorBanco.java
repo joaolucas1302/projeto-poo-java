@@ -1,5 +1,9 @@
 public class AutorBanco extends BancoBase<Autor> {
 
+    public AutorBanco() {
+        super("autores.dat");
+    }
+
     @Override
     protected boolean existe(Autor autor) {
         return pesquisar(autor.getAutid()) != null;
@@ -12,6 +16,7 @@ public class AutorBanco extends BancoBase<Autor> {
             autor.setAutnome(novoNome);
             autor.setAutpseudomo(novoPseudonimo);
             autor.setAutobservacoes(novasObservacoes);
+            notificarAlteracao();
             return true;
         } catch (IllegalArgumentException ex) {
             return false;

@@ -53,8 +53,7 @@ public class MenuEditoras {
     private void inserir() {
         try {
             System.out.println("\n--- INSERIR EDITORA ---");
-            System.out.print("ID (>0): ");
-            int edid = lerInt();
+            System.out.println("[INFO] O codigo sera gerado automaticamente.");
             System.out.print("Nome (min 3 chars): ");
             String nome = scanner.nextLine();
             System.out.print("Sigla (min 2 chars): ");
@@ -62,9 +61,12 @@ public class MenuEditoras {
             System.out.print("Observacoes (opcional): ");
             String obs = scanner.nextLine();
             
-            Editora e = new Editora(edid, nome, sigla, obs);
-            if (banco.adicionar(e)) System.out.println("[OK] " + e);
-            else System.out.println("[ERRO] ID duplicado!");
+            Editora e = new Editora(nome, sigla, obs);
+            if (banco.adicionarComCodigoAutomatico(e)) {
+                System.out.println("[OK] " + e);
+            } else {
+                System.out.println("[ERRO] Nao foi possivel inserir!");
+            }
         } catch (IllegalArgumentException ex) {
             System.out.println("[ERRO] " + ex.getMessage());
         }
@@ -121,6 +123,11 @@ public class MenuEditoras {
     }
 
     private void obterNumeroItens() {
-        System.out.println("\n[INFO] Total: " + banco.contar());
+        int totalAtual = banco.contar();
+        int totalAdicionados = banco.contadorRegistrosAdicionados();
+        System.out.println("\n========== CONTADOR DE REGISTROS ==========");
+        System.out.println("[INFO] Total de editoras cadastradas: " + totalAtual);
+        System.out.println("[INFO] Total de registros adicionados: " + totalAdicionados);
+        System.out.println("==========================================");
     }
 }

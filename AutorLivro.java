@@ -1,6 +1,6 @@
 public class AutorLivro {
-    private int livid;  // FK para Livro
-    private int autid;  // FK para Autor
+    private int livid;  
+    private int autid;  
 
     public AutorLivro(int livid, int autid) {
         setLivid(livid);

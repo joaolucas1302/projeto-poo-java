@@ -1,0 +1,13 @@
+# Build outputs
+bin/
+*.class
+
+# VS Code settings (optional to ignore)
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# App data files
+data/

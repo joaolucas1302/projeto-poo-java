@@ -1,25 +1,50 @@
-public class Autor {
-    private int autid;
+/**
+ * Classe Autor - Representa um autor no sistema
+ * Conceitos POO: Herança (extends Entidade), Encapsulamento, Sobrecarga de Métodos
+ */
+public class Autor extends Entidade {
     private String autnome;
     private String autpseudomo;
     private String autobservacoes;
 
+    /**
+     * Construtor completo - Sobrecarga de Métodos
+     */
     public Autor(int autid, String autnome, String autpseudomo, String autobservacoes) {
-        setAutid(autid);
+        super(autid);
         setAutnome(autnome);
         setAutpseudomo(autpseudomo);
         setAutobservacoes(autobservacoes);
     }
 
+    /**
+     * Construtor simplificado - Sobrecarga de Métodos
+     */
+    public Autor(int autid, String autnome) {
+        this(autid, autnome, "", "");
+    }
+
+    /**
+     * Construtor apenas com nome (ID será gerado automaticamente)
+     * Sobrecarga de Métodos
+     */
+    public Autor(String autnome) {
+        this(0, autnome, "", "");
+    }
+
+    /**
+     * Construtor com nome e pseudônimo - Sobrecarga de Métodos
+     */
+    public Autor(String autnome, String autpseudomo) {
+        this(0, autnome, autpseudomo, "");
+    }
+
     public int getAutid() {
-        return autid;
+        return getCodigo();
     }
 
     public void setAutid(int autid) {
-        if (autid <= 0) {
-            throw new IllegalArgumentException("ID deve ser maior que zero.");
-        }
-        this.autid = autid;
+        setCodigo(autid);
     }
 
     public String getAutnome() {
@@ -55,10 +80,13 @@ public class Autor {
         this.autobservacoes = autobservacoes.trim();
     }
 
+    /**
+     * Sobrescrição do método toString (Override)
+     */
     @Override
     public String toString() {
         String pseudonimo = autpseudomo.isEmpty() ? "" : " (Pseudonimo: " + autpseudomo + ")";
         String obs = autobservacoes.isEmpty() ? "" : " - " + autobservacoes;
-        return "[" + autid + "] " + autnome + pseudonimo + obs;
+        return "[" + getCodigo() + "] " + autnome + pseudonimo + obs;
     }
 }

@@ -1,5 +1,9 @@
 public class LivroBanco extends BancoBase<Livro> {
 
+    public LivroBanco() {
+        super("livros.dat");
+    }
+
     @Override
     protected boolean existe(Livro l) {
         return pesquisar(l.getLivid()) != null;
@@ -14,6 +18,7 @@ public class LivroBanco extends BancoBase<Livro> {
             l.setLivisbn(novoLivIsbn);
             l.setLivobservacoes(novasObservacoes);
             l.setEdid(novoEdid);
+            notificarAlteracao();
             return true;
         } catch (IllegalArgumentException ex) {
             return false;
